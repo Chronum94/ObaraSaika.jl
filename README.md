@@ -1,0 +1,4 @@
+# ObaraSaika.jl
+
+Requires:
+- GSL

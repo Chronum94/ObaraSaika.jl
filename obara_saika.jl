@@ -27,7 +27,7 @@ function get_shell4(a, b, c, d)
         for q in get_ijk_list(b)
             for r in get_ijk_list(c)
                 for s in get_ijk_list(d)
-                    push!(components, [p, q, r, s])
+                    push!(components, vcat(p, q, r, s))
                 end
             end
         end
@@ -39,7 +39,7 @@ function get_shell2(a, b)
     components = Array{Int, 1}[]
     for p in get_ijk_list(a)
         for q in get_ijk_list(b)
-            push!(components, [p, q])
+            push!(components, vcat(p, q))
         end
     end
     return components
@@ -132,7 +132,7 @@ function find_fun_to_lower(q, n)
 end
 
 function find_component_to_lower(fun)
-    for i, c in enumerate(fun)
+    for (i, c) in enumerate(fun)
         if c > 0
             return i
         end

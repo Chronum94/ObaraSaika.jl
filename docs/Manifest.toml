@@ -23,6 +23,18 @@ git-tree-sha1 = "fb1ff838470573adc15c71ba79f8d31328f035da"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 version = "0.25.2"
 
+[[GSL]]
+deps = ["GSL_jll", "Libdl", "Markdown"]
+git-tree-sha1 = "44457ebe445acec09dfb9a7afe60af2289ff9997"
+uuid = "92c85e6c-cbff-5e0c-80f7-495c94daaecd"
+version = "1.0.0"
+
+[[GSL_jll]]
+deps = ["Libdl", "Pkg"]
+git-tree-sha1 = "5bfc132c5162c415be2f49737b95c858f0b70a4c"
+uuid = "1b77fbbe-d8ee-58f0-85f9-836ddc23a7a4"
+version = "2.6.0+3"
+
 [[InteractiveUtils]]
 deps = ["Markdown"]
 uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
@@ -51,6 +63,7 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
 [[ObaraSaika]]
+deps = ["GSL"]
 path = ".."
 uuid = "5b212b89-b4cd-42cd-a3f8-ba7ab2c3d492"
 version = "0.1.0"

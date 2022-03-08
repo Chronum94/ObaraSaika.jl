@@ -1,4 +1,5 @@
 module ObaraSaika
+using Distances
 
 function get_ijk_list(m)
     l = Array{Int, 1}[]
@@ -109,22 +110,18 @@ function apply_os2(x, kind)
     # TODO
 end
 
-function get_r12_squared(r1, r2)
-    # have an assertion that they're both length 3?
-    # do some array trick rather than this crap?
-    return (r1[0] - r2[0])^2.0 + (r1[1] - r2[1])^2.0 + (r1[2] - r2[2])^2.0
+@inline function get_r12_squared(r1, r2)
+    # Do we need a length-3 assert? Because
+    # that can be either (3,) or (1, 3), etc etc.
+    evaluate(SqEuclidean(), r1, r2)
 end
 
 function get_k(z1, z2, r1, r2)
     r12 = get_r12_squared(r1, r2)
     f0 = z1 + z2
-    if r12 > 0.0
-        f1 = -z1*z2*r12/f0
-        f2 = exp(f1)
-    else
-        f2 = 1.0
-    end
-    return sqrt(2.0)*f2*pi^(5.0/4.0)/f0
+    f1 = -z1*z2*r12/f0
+    f2 = exp(f1)
+    sqrt(2.0)*f2*pi^(5.0/4.0)/f0
 end
 
 function get_rho(za, zb, zc, zd)

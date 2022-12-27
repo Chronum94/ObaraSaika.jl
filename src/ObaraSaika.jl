@@ -38,6 +38,14 @@ function get_shell2(a, b)
     return components
 end
 
+function get_shell(n...)
+    components = Array{Int, 1}[]
+    for ii in Base.Iterators.product([get_ijk_list(x) for x in n]...)
+        push!(components, vcat(ii...))
+    end
+    return components
+end
+
 function list_is_flat(l)
     for x in l
         if x <: Array
